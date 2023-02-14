@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Invite Accounts</title>
+    <title>CSV Guest Invite</title>
   </head>
   <body>
-    <h1>Invite Accounts</h1>
+    <h1>CSV Guest Invite</h1>
     <form>
-      <label>Upload CSV file:</label><br><br>
+      <label>Please Upload CSV file:</label><br><br>
       <input type="file" id="file" accept=".csv">
       <br><br>
       <button type="button" onclick="sendInvitations()">Send</button>
@@ -24,7 +24,7 @@
         var formData = new FormData();
         formData.append("file", file);
         var xhr = new XMLHttpRequest();
-        xhr.open("POST", "https://kenotion.cloudtype.com/CSV/", true);
+        xhr.open("POST", "http://127.0.0.1:5000/CSV/", true);
         xhr.onload = function() {
           if (this.status === 200) {
             document.getElementById("message").innerHTML = "File uploaded successfully.";
