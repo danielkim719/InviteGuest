@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Select your app's scopes</title>
+  </head>
+  <body>
+    <h1>Select your app's scopes</h1>
+    <form>
+      <select multiple id="scopes">
+        <option value="app:install">app:install</option>
+        <option value="approval:read">approval:read</option>
+        <option value="approval:write">approval:write</option>
+        <option value="channel:read">channel:read</option>
+        <option value="channel:write">channel:write</option>
+        <option value="idea:read">idea:read</option>
+        <option value="idea:write">idea:write</option>
+        <option value="message:read">message:read</option>
+        <option value="message:write">message:write</option>
+        <option value="presence:read">presence:read</option>
+        <option value="presence:write">presence:write</option>
+        <option value="project:read">project:read</option>
+        <option value="project:write">project:write</option>
+        <option value="store:write">store:write</option>
+        <option value="task:read">task:read</option>
+        <option value="task:write">task:write</option>
+        <option value="user:read">user:read</option>
+        <option value="user:write">user:write</option>
+        <option value="workspace:read">workspace:read</option>
+        <option value="workspace:write">workspace:write</option>
+      </select>
+      <br><br>
+      <button type="button" onclick="generateURL()">Generate URL</button>
+    </form>
+    <br><br>
+    <p id="output"></p>
+
+    <script>
+      function generateURL() {
+        var scopes = document.getElementById("scopes");
+        var selectedScopes = [];
+        for (var i = 0; i < scopes.options.length; i++) {
+          if (scopes.options[i].selected) {
+            selectedScopes.push(scopes.options[i].value);
+          }
+        }
+        document.getElementById("output").innerHTML = "https://switworld.io&scope=" + selectedScopes.join("+");
+      }
+    </script>
+  </body>
+</html>
